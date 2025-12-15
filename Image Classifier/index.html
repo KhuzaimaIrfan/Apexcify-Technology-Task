@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Expression Classifier</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Face Expression Classifier</h1>
+            <p class="subtitle">Real-time emotion detection using Teachable Machine</p>
+        </header>
+
+        <main>
+            <div class="webcam-container">
+                <canvas id="canvas" width="400" height="400"></canvas>
+                <div id="loader" class="loader hidden"></div>
+                <div id="overlay-message" class="overlay-message">
+                    <p>Click "Start" to enable webcam</p>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button type="button" onclick="init()" class="btn-primary">Start Webcam</button>
+            </div>
+
+            <div id="label-container" class="label-container"></div>
+        </main>
+
+        <section class="info-section">
+            <h2>How it Works</h2>
+            <div class="info-cards">
+                <div class="card">
+                    <h3>1. Webcam Input</h3>
+                    <p>Your browser captures video frames from your webcam in real-time.</p>
+                </div>
+                <div class="card">
+                    <h3>2. TensorFlow.js</h3>
+                    <p>The frames are processed locally in your browser using a Deep Learning model.</p>
+                </div>
+                <div class="card">
+                    <h3>3. Classification</h3>
+                    <p>The model compares the input against "Happy", "Sad", and "Neutral" patterns to predict your expression.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
